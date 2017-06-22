@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GenerarGruia.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GenerarGruia_wsGeneracionGuiasSisclinet_GeneracionGuias" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://web.servientrega.com:8081/GeneracionGuias.asmx</Value>
+    </Setting>
+    <Setting Name="GenerarGruia_com_hermeco_chaosap_WsUtilidadesChaoSAP" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://chaosap.hermeco.com/WsUtilidadesChaoSAP/WsUtilidadesChaoSAP.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

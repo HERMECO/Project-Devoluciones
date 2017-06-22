@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://tempuri.org/clsEtiqueta.xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://tempuri.org/AbstractTypes" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://tempuri.org/clsEtiqueta.xsd" />
+      <s:element name="ImpresionEtiquetas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objEtiqueta" type="tns:ArrayOfEtiqueta" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEtiqueta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMaquina" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTipoImpresion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEtiqueta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Etiqueta" nillable="true" type="s1:Etiqueta" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ImpresionEtiquetasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImpresionEtiquetasResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarArchivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarArchivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CargarArchivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarCorreo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strEmialOrigen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArrEmailDestino" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArrEmailCopia" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAsunto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBody" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnBodyHtml" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametros" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="valores" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAdjunto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EnviarCorreoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnviarCorreoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/clsEtiqueta.xsd">
+      <s:complexType name="Etiqueta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Valor" type="s1:Dato" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cantidad" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dato">
+        <s:attribute name="Valor" type="s:string" />
+        <s:attribute name="Nombre" type="s:string" />
+      </s:complexType>
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImpresionEtiquetasSoapIn">
+    <wsdl:part name="parameters" element="tns:ImpresionEtiquetas" />
+  </wsdl:message>
+  <wsdl:message name="ImpresionEtiquetasSoapOut">
+    <wsdl:part name="parameters" element="tns:ImpresionEtiquetasResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargarArchivoSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarArchivo" />
+  </wsdl:message>
+  <wsdl:message name="CargarArchivoSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarArchivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviarCorreoSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviarCorreo" />
+  </wsdl:message>
+  <wsdl:message name="EnviarCorreoSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviarCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargarArchivoHttpGetIn">
+    <wsdl:part name="file" type="s2:StringArray" />
+    <wsdl:part name="filename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CargarArchivoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarCorreoHttpGetIn">
+    <wsdl:part name="strEmialOrigen" type="s:string" />
+    <wsdl:part name="ArrEmailDestino" type="s2:StringArray" />
+    <wsdl:part name="ArrEmailCopia" type="s2:StringArray" />
+    <wsdl:part name="strAsunto" type="s:string" />
+    <wsdl:part name="strBody" type="s:string" />
+    <wsdl:part name="blnBodyHtml" type="s:string" />
+    <wsdl:part name="parametros" type="s2:StringArray" />
+    <wsdl:part name="valores" type="s2:StringArray" />
+    <wsdl:part name="strAdjunto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarCorreoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CargarArchivoHttpPostIn">
+    <wsdl:part name="file" type="s2:StringArray" />
+    <wsdl:part name="filename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CargarArchivoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarCorreoHttpPostIn">
+    <wsdl:part name="strEmialOrigen" type="s:string" />
+    <wsdl:part name="ArrEmailDestino" type="s2:StringArray" />
+    <wsdl:part name="ArrEmailCopia" type="s2:StringArray" />
+    <wsdl:part name="strAsunto" type="s:string" />
+    <wsdl:part name="strBody" type="s:string" />
+    <wsdl:part name="blnBodyHtml" type="s:string" />
+    <wsdl:part name="parametros" type="s2:StringArray" />
+    <wsdl:part name="valores" type="s2:StringArray" />
+    <wsdl:part name="strAdjunto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarCorreoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WsUtilidadesChaoSAPSoap">
+    <wsdl:operation name="ImpresionEtiquetas">
+      <wsdl:input message="tns:ImpresionEtiquetasSoapIn" />
+      <wsdl:output message="tns:ImpresionEtiquetasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarArchivo">
+      <wsdl:input message="tns:CargarArchivoSoapIn" />
+      <wsdl:output message="tns:CargarArchivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreo">
+      <wsdl:input message="tns:EnviarCorreoSoapIn" />
+      <wsdl:output message="tns:EnviarCorreoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WsUtilidadesChaoSAPHttpGet">
+    <wsdl:operation name="CargarArchivo">
+      <wsdl:input message="tns:CargarArchivoHttpGetIn" />
+      <wsdl:output message="tns:CargarArchivoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreo">
+      <wsdl:input message="tns:EnviarCorreoHttpGetIn" />
+      <wsdl:output message="tns:EnviarCorreoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WsUtilidadesChaoSAPHttpPost">
+    <wsdl:operation name="CargarArchivo">
+      <wsdl:input message="tns:CargarArchivoHttpPostIn" />
+      <wsdl:output message="tns:CargarArchivoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreo">
+      <wsdl:input message="tns:EnviarCorreoHttpPostIn" />
+      <wsdl:output message="tns:EnviarCorreoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsUtilidadesChaoSAPSoap" type="tns:WsUtilidadesChaoSAPSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImpresionEtiquetas">
+      <soap:operation soapAction="http://tempuri.org/ImpresionEtiquetas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarArchivo">
+      <soap:operation soapAction="http://tempuri.org/CargarArchivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreo">
+      <soap:operation soapAction="http://tempuri.org/EnviarCorreo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsUtilidadesChaoSAPSoap12" type="tns:WsUtilidadesChaoSAPSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImpresionEtiquetas">
+      <soap12:operation soapAction="http://tempuri.org/ImpresionEtiquetas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarArchivo">
+      <soap12:operation soapAction="http://tempuri.org/CargarArchivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreo">
+      <soap12:operation soapAction="http://tempuri.org/EnviarCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsUtilidadesChaoSAPHttpGet" type="tns:WsUtilidadesChaoSAPHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CargarArchivo">
+      <http:operation location="/CargarArchivo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreo">
+      <http:operation location="/EnviarCorreo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsUtilidadesChaoSAPHttpPost" type="tns:WsUtilidadesChaoSAPHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CargarArchivo">
+      <http:operation location="/CargarArchivo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarCorreo">
+      <http:operation location="/EnviarCorreo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsUtilidadesChaoSAP">
+    <wsdl:port name="WsUtilidadesChaoSAPSoap" binding="tns:WsUtilidadesChaoSAPSoap">
+      <soap:address location="https://chaosap.hermeco.com/WsUtilidadesChaoSAP/WsUtilidadesChaoSAP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsUtilidadesChaoSAPSoap12" binding="tns:WsUtilidadesChaoSAPSoap12">
+      <soap12:address location="https://chaosap.hermeco.com/WsUtilidadesChaoSAP/WsUtilidadesChaoSAP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsUtilidadesChaoSAPHttpGet" binding="tns:WsUtilidadesChaoSAPHttpGet">
+      <http:address location="https://chaosap.hermeco.com/WsUtilidadesChaoSAP/WsUtilidadesChaoSAP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsUtilidadesChaoSAPHttpPost" binding="tns:WsUtilidadesChaoSAPHttpPost">
+      <http:address location="https://chaosap.hermeco.com/WsUtilidadesChaoSAP/WsUtilidadesChaoSAP.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
