@@ -60,15 +60,15 @@
     </Reference>
     <Reference Include="Hermeco.RestService.ClientProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\AppData\Local\Packages\Microsoft.SkypeApp_kzf8qxf38zg5c\LocalState\Downloads\bin\Hermeco.RestService.ClientProxy.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\dll Hermeco\Hermeco.RestService.ClientProxy.dll</HintPath>
     </Reference>
     <Reference Include="Hermeco.RestService.DataContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\AppData\Local\Packages\Microsoft.SkypeApp_kzf8qxf38zg5c\LocalState\Downloads\bin\Hermeco.RestService.DataContract.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\dll Hermeco\Hermeco.RestService.DataContract.dll</HintPath>
     </Reference>
     <Reference Include="Hermeco.RestService.SapProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\AppData\Local\Packages\Microsoft.SkypeApp_kzf8qxf38zg5c\LocalState\Downloads\bin\Hermeco.RestService.SapProxy.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\dll Hermeco\Hermeco.RestService.SapProxy.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>

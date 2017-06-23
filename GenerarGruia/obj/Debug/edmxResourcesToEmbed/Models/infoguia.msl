@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="datosguiaModelStoreContainer" CdmEntityContainer="datosguiaEntities2">
+    <EntitySetMapping Name="info_guia">
+      <EntityTypeMapping TypeName="datosguiaModel.info_guia">
+        <MappingFragment StoreEntitySet="info_guia">
+          <ScalarProperty Name="num_documento" ColumnName="num_documento" />
+          <ScalarProperty Name="id_motivos" ColumnName="id_motivos" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="num_pedido" ColumnName="num_pedido" />
+          <ScalarProperty Name="num_guia" ColumnName="num_guia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="motivos">
+      <EntityTypeMapping TypeName="datosguiaModel.motivos">
+        <MappingFragment StoreEntitySet="motivos">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

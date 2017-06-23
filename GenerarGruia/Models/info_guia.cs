@@ -24,5 +24,6 @@ namespace GenerarGruia.Models
         public string direccion { get; set; }
         public string codigoPostal { get; set; }
         public Nullable<int> id_motivos { get; set; }
+        public string num_documento { get; set; }
     }
 }

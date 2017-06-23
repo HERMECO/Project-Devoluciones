@@ -1,8 +1,5 @@
 $(function () {
-    var clearBorder = function () {
-        $('.g-recaptcha > div').css('border', 'solid 1px transparent');
-    }
-    var data = [{ id: 1 }];
+
     var selections = JSON.parse(JSON.stringify(data));
     var reason = JSON.parse(JSON.stringify(data[0].id));
     $("#id_motivo").val(reason).value;
@@ -18,32 +15,24 @@ $(function () {
     })
     $('#Button1').on('click', function () {
 
-        var gAuth = grecaptcha.getResponse();
         var privacy = $('.checkbox > input').prop("checked");
 
-        $('.g-recaptcha > div').css({
-            'border': 'solid 0px transparent'
-            , 'transition': 'all 0.3s ease'
-        });
-        if ((gAuth.length > 0) && privacy && !($(this).hasClass('loading'))) {
+
+        if (privacy && !($(this).hasClass('loading'))) {
             $(this).addClass('loading');
             $(".loadingModal").addClass("active");
             console.log('true');
         }
         else {
-            if (gAuth.length == 0) {
-                $('.g-recaptcha > div').css('border', 'solid 1px orangered');
-            }
+
             if (!privacy) {
                 $('.checkbox > input').css('border', 'solid 1px orangered');
-                $('.text > h5 > a').css('color', 'orangered');
+                $('.text > h6 > a').css('color', 'orangered');
                 $('.checkbox > input').on('click', function () {
-                    $('.text > h5 > a').css('color', '#e6c700');
+                    $('.text > h6 > a').css('color', '#e6c700');
                 })
             }
         }
-
-        $("#cacth").val(gAuth).value;
         $("#policy").val(privacy).value;
 
     });
@@ -56,19 +45,25 @@ $(function () {
 
 
     $('.no-return').on('click', function () {
-        if ($('.hamburger').hasClass('active') || ($(window).width() >= 768)) {
-            $('.popup').addClass('active');
-            $('.popup > .float > .content').load('No_return.html');
-            scrollTo($('.popup'));
-        }
+        //if ($('.hamburger').hasClass('active') || ($(window).width() >= 768)) {
+        //    $('.popup').addClass('active');
+        //    $('.popup > .float > .content').load('No_return.html');
+        //    scrollTo($('.popup'));
+        //}
+        //sweetAlert("Los siguientes productos no aplican para devolucion:", "- Interior (Medias, Boxer, Pantaloncillo, top, panty, set interior).  - Prendas de baño.  - Articulos de cuidado personal", "info");
+        $('#myModal').modal('toggle');
     });
 
     $('.problems').on('click', function () {
-        if ($('.hamburger').hasClass('active') || ($(window).width() >= 768)) {
-            $('.popup').addClass('active');
-            $('.popup > .float > .content').load('Problemas.html');
-            scrollTo($('.popup'));
-        }
+        //if ($('.hamburger').hasClass('active') || ($(window).width() >= 768)) {
+        //    $('.popup').addClass('active');
+        //    $('.popup > .float > .content').load('Problemas.html');
+        //    scrollTo($('.popup'));
+        //}
+        //sweetAlert("", "Si necesitas una nueva guia, por favor comunicate a nuestra linea 01 8000 18 0380 o envianos un correo a la direccion: servicioalcliente@offcorss.com", "info");
+
+        $('#myModal1').modal('toggle');
+
     });
 
     $('.guide').on('click', function () {

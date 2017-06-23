@@ -137,6 +137,8 @@ namespace GenerarGruia
                         numFactura = Information.packageAttachment.packages[0].invoiceNumber;
                     }
 
+                     
+
                     var infoEmail = GetEmailVtex($"http://conversationtracker.vtex.com.br/api/pvt/emailMapping?alias={alias}&an=offcorss",
                         "x-vtex-api-appKey:vtexappkey-offcorss-OZNHJF;x-vtex-api-appToken:DUJHOHBZQROBWRMUHYCUKTYLMVVMCLKMSVOXYPJTADTLQIBROVYZJIZJWYVTMPXFHBJBDOWSOITGAMUDTDXGMKCJVEBZTQHLGNEPZAOAYGLAOSJKERZIRQTWYZFYMXZY", "");
 
@@ -264,11 +266,11 @@ namespace GenerarGruia
                             arrEnvios.Ide_Num_Identific_Dest = num_documento;
                             arrEnvios.Des_CorreoElectronico = email_Des;
                             arrEnvios.Est_CanalMayorista = false;
-                            arrEnvios.Des_DepartamentoOrigen = DepartamentoDestino;
+                            arrEnvios.Des_DepartamentoOrigen = "Bogota";
                             arrEnvios.Des_DiceContener = Des_DiceContener;
                             arrEnvios.Des_codigopostal = codigoPostal_Des;
                             arrEnvios.Des_CiudadRecogida = ciudad;
-                            arrEnvios.Des_CiudadRemitente = ciudad;
+                            arrEnvios.Des_CiudadRemitente = "Bogota";
                             arrEnvios.Des_DireccionRecogida = "0";
                             arrEnvios.Des_TelefonoRecogida = "0";
                             arrEnvios.Nom_RemitenteCanal = "";
@@ -658,14 +660,10 @@ namespace GenerarGruia
                 mail.Attachments.Add(new Attachment(ruta));
 
                 //Configuracion del SMTP
-                SmtpServer.Port = 25; //Puerto que utiliza Gmail para sus servicios
+                SmtpServer.Port = 587; //Puerto que utiliza Gmail para sus servicios
                 //Especificamos las credenciales con las que enviaremos el mail
-                //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
-                SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
-                SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Host = smtp;
-
-                //SmtpServer.EnableSsl = true;
+                SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
+                SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
 
                 return true;
@@ -735,18 +733,14 @@ namespace GenerarGruia
                 mail.Subject = $"TV-Solicitud Devolución Automática";
                 mail.IsBodyHtml = true;
                 mail.Body = Mailbody(nombre, correo, cedula, pedido, motivo, guia, factura); ;
-                mail.To.Add(destinatario);
+                mail.To.Add(remite);
                 mail.Attachments.Add(new Attachment(ruta));
 
                 //Configuracion del SMTP
-                SmtpServer.Port = 25; //Puerto que utiliza Gmail para sus servicios
+                SmtpServer.Port = 587; //Puerto que utiliza Gmail para sus servicios
                 //Especificamos las credenciales con las que enviaremos el mail
-                //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
-                SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
-                SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Host = smtp;
-
-                //SmtpServer.EnableSsl = true;
+                SmtpServer.Credentials = new NetworkCredential(remite, passRemite);
+                SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
 
                 return true;

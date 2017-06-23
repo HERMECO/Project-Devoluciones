@@ -13,7 +13,7 @@ namespace GenerarGruia.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class datosguiaEntities : DbContext  
+    public partial class datosguiaEntities : DbContext
     {
         public datosguiaEntities()
             : base("name=datosguiaEntities")

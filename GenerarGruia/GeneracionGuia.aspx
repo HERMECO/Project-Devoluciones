@@ -39,6 +39,10 @@
                 sweetAlert("", "Por favor selecciona un motivo", "warning");
             }
         }
+
+        function byteError(a) {
+            sweetAlert("Oops...", a, "error");
+        }
     </script>
 </head>
 
@@ -63,7 +67,7 @@
                         <div class="col-xs-12 title">
                             <h1><asp:Label ID="Name" runat="server" /></h1> </div>
                         <div class="col-xs-12 content">
-                            <h2>Pedido <a><asp:Label ID="OrderId" runat="server" /></a></h2> </div>
+                            <h2>¿Desea hacer una devolución para el pedido <a><asp:Label ID="OrderId" runat="server" /></a>?</h2> </div>
                     </div>
                 </div>
                 <div class="col-xs-12 popup">
@@ -97,9 +101,65 @@
                     </div>
                 </div>
             </div>
+            <div id="myModal1" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="modal-title">
+                                <h2>¿Problemas al generar la guía?</h2>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Por favor comunícate a nuestra línea 01 8000 18 0380 o envíanos un correo a la dirección <b><a href="mailto:servicioalcliente@offcorss.com" target="_blank">servicioalcliente@offcorss.com</a></b></h3>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group">
+                                <button class="btn btn-primary"><span></span>OK</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dalog -->
+            </div>
+            <!-- /.modal -->
+
+            <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="modal-title">
+                                <h2>Los siguientes productos no aplican para devolución:</h2>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="col-lg-12">
+                                    <li>
+                                        <h3>- Interior (Medias, Bóxer, Pantaloncillo, top, panty, set interior)</h3>
+                                    </li>
+                                    <li>
+                                        <h3>- Prendas de baño</h3>
+                                    </li>
+                                    <li>
+                                        <h3>- Artículos de cuidado personal</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group">
+                                <button class="btn btn-primary"><span></span>OK</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dalog -->
+            </div>
+            <!-- /.modal -->
         </div>
         <asp:HiddenField ID="id_motivo" runat="server" />
-        <asp:HiddenField ID="cacth" runat="server" />
         <asp:HiddenField ID="policy" runat="server" /> </form>
     <div class="col-xs-12 footer">
         <ul class="featured col-xs-12">
