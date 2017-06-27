@@ -673,12 +673,12 @@ body .footer {
                     }
 
     body .page .body .info {
-        padding: 10vh 2vw;
+        padding: 8vh 2vw;
         border: dashed 0px yellow;
     }
 
         body .page .body .info .float {
-            padding: 4vh 2vw;
+            padding: 1vh 2vw;
             border-radius: 5px;
         }
 
