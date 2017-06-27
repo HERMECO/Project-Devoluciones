@@ -143,6 +143,9 @@
     <Content Include="Design\render\LayoutV1.png" />
     <Content Include="Design\render\mobile-clear.png" />
     <Content Include="Design\render\mobile-dark.png" />
+    <Content Include="dlls-faltantes\Hermeco.RestService.ClientProxy.dll" />
+    <Content Include="dlls-faltantes\Hermeco.RestService.DataContract.dll" />
+    <Content Include="dlls-faltantes\Hermeco.RestService.SapProxy.dll" />
     <Content Include="favicon.ico" />
     <Content Include="guiagenerada.aspx" />
     <Content Include="img\3-low.jpg" />

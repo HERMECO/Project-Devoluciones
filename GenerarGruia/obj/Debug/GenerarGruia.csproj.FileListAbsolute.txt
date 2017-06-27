@@ -154,3 +154,4 @@ C:\Users\BASE16DEV1\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Microsoft
 C:\Users\BASE16DEV1\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\BASE16DEV1\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Debug\GenerarGruia.dll
 C:\Users\BASE16DEV1\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Debug\GenerarGruia.pdb
+C:\Users\BASE16DEV1\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Debug\GenerarGruia.csprojResolveAssemblyReference.cache
