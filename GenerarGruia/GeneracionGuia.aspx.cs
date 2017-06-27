@@ -32,7 +32,7 @@ namespace GenerarGruia
                     var Motivos = from motivo in mot.motivos
                                   where motivo.estado == true
                                   select new { motivo.id, text = motivo.descripcion };
-                    
+
                     var serializer = new JavaScriptSerializer();
                     string json = serializer.Serialize(Motivos);
                     string script = "var data = " + json + ";";
@@ -92,10 +92,10 @@ namespace GenerarGruia
 
             return null;
         }
-        
+
         public void GenerarGuia_Click(object sender, EventArgs e)
         {
-            
+
             var privacy = Convert.ToString(policy.Value);
             var idMotivo = Convert.ToString(id_motivo.Value);
 
@@ -103,7 +103,7 @@ namespace GenerarGruia
             {
                 string privacyErr = Convert.ToString(privacy);
                 string idMotivoErr = idMotivo;
-                ClientScript.RegisterStartupScript(this.GetType(), "Pli", $"ErrorPli( '" + privacyErr + "', '"+ idMotivoErr + "' );", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "Pli", $"ErrorPli( '" + privacyErr + "', '" + idMotivoErr + "' );", true);
             }
             else
             {
@@ -121,7 +121,7 @@ namespace GenerarGruia
                     string ciudad = Information.shippingData.address.city;
                     string direccion = Information.shippingData.address.street;
                     string DepartamentoDestino = Information.shippingData.address.state;
-                    string CodigoPostal = Information.shippingData.address.postalCode;
+                    string CodigoPostal = Information.shippingData.address.postalCode + 000;
                     string num_pedido = Information.orderId1;
                     string num_documento = Information.clientProfileData.document;
                     string NomApell = $"{ nombre } { apellidos }";
@@ -137,7 +137,7 @@ namespace GenerarGruia
                         numFactura = Information.packageAttachment.packages[0].invoiceNumber;
                     }
 
-                     
+
 
                     var infoEmail = GetEmailVtex($"http://conversationtracker.vtex.com.br/api/pvt/emailMapping?alias={alias}&an=offcorss",
                         "x-vtex-api-appKey:vtexappkey-offcorss-OZNHJF;x-vtex-api-appToken:DUJHOHBZQROBWRMUHYCUKTYLMVVMCLKMSVOXYPJTADTLQIBROVYZJIZJWYVTMPXFHBJBDOWSOITGAMUDTDXGMKCJVEBZTQHLGNEPZAOAYGLAOSJKERZIRQTWYZFYMXZY", "");
@@ -185,8 +185,8 @@ namespace GenerarGruia
 
                     datosguiaEntities context = new datosguiaEntities();
 
-                    var query = context.info_guia.Where(x => x.num_pedido == num_pedido ).ToList();
-                    
+                    var query = context.info_guia.Where(x => x.num_pedido == num_pedido).ToList();
+
                     if (query.Count > 0)
                     {
                         infoWarning(num_pedido);
@@ -266,17 +266,17 @@ namespace GenerarGruia
                             arrEnvios.Ide_Num_Identific_Dest = num_documento;
                             arrEnvios.Des_CorreoElectronico = email_Des;
                             arrEnvios.Est_CanalMayorista = false;
-                            arrEnvios.Des_DepartamentoOrigen = "Bogota";
+                            arrEnvios.Des_DepartamentoOrigen = DepartamentoDestino;
                             arrEnvios.Des_DiceContener = Des_DiceContener;
                             arrEnvios.Des_codigopostal = codigoPostal_Des;
                             arrEnvios.Des_CiudadRecogida = ciudad;
-                            arrEnvios.Des_CiudadRemitente = "Bogota";
+                            arrEnvios.Des_CiudadRemitente = "";
                             arrEnvios.Des_DireccionRecogida = "0";
                             arrEnvios.Des_TelefonoRecogida = "0";
                             arrEnvios.Nom_RemitenteCanal = "";
                             arrEnvios.Num_Celular = "";
                             arrEnvios.Recoleccion_Esporadica = "";
-                            arrEnvios.Rem_codigopostal = "";
+                            arrEnvios.Rem_codigopostal = CodigoPostal;
                             arrEnvios.Des_DiceContenerSobre = "";
                             arrEnvios.Num_IdentiRemitente = "";
                             arrEnvios.Des_DireccionRemitente = direccion;
@@ -549,7 +549,7 @@ namespace GenerarGruia
             body.AppendLine(@"</html>");
             return body.ToString();
         }
-        
+
         public Boolean SendMail(string ruta, string correo, string nombre)
         {
             try
@@ -660,10 +660,14 @@ namespace GenerarGruia
                 mail.Attachments.Add(new Attachment(ruta));
 
                 //Configuracion del SMTP
-                SmtpServer.Port = 587; //Puerto que utiliza Gmail para sus servicios
+                SmtpServer.Port = 25; //Puerto que utiliza Gmail para sus servicios
                 //Especificamos las credenciales con las que enviaremos el mail
-                SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
-                SmtpServer.EnableSsl = true;
+                //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
+                SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Host = smtp;
+
+                //SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
 
                 return true;
@@ -673,7 +677,7 @@ namespace GenerarGruia
                 return false;
             }
         }
-        
+
         /* =========================================================================================================================================================*/
 
         public static string Mailbody(string nombre, string correo, string cedula, string pedido, string motivo, string guia, string factura)
@@ -733,14 +737,18 @@ namespace GenerarGruia
                 mail.Subject = $"TV-Solicitud Devolución Automática";
                 mail.IsBodyHtml = true;
                 mail.Body = Mailbody(nombre, correo, cedula, pedido, motivo, guia, factura); ;
-                mail.To.Add(remite);
+                mail.To.Add(destinatario);
                 mail.Attachments.Add(new Attachment(ruta));
 
                 //Configuracion del SMTP
-                SmtpServer.Port = 587; //Puerto que utiliza Gmail para sus servicios
+                SmtpServer.Port = 25; //Puerto que utiliza Gmail para sus servicios
                 //Especificamos las credenciales con las que enviaremos el mail
-                SmtpServer.Credentials = new NetworkCredential(remite, passRemite);
-                SmtpServer.EnableSsl = true;
+                //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
+                SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Host = smtp;
+
+                //SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
 
                 return true;
@@ -769,7 +777,8 @@ namespace GenerarGruia
             ClientScript.RegisterStartupScript(this.GetType(), "Error", "ErrorModal('" + textError + "');", true);
         }
 
-        public void ErrByte() {
+        public void ErrByte()
+        {
             string byteError = $"Ah ocurrido un error interno porfavor vuelva a intentar de nuevo generar su guía de devolución\n Sí el error persiste por favor comunicate a la linea 01 8000 18 0380 o envíanos un correo a la dirección servicioalcliente@offcorss.com";
             ClientScript.RegisterStartupScript(this.GetType(), "byteError", "ErrorModal('" + byteError + "');", true);
         }

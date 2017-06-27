@@ -20,9 +20,9 @@
                 </div>
                 <div class="col-xs-12 body">
                     <div class="jumbotron col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-                        <h1 class="display-3">Su guía ha sido generada exitosamente</h1>
+                        <h1 class="display-3">Tu guía ha sido generada exitosamente</h1>
                         <p class="lead">
-                            Hola <b><asp:Label ID="name" Text="text" runat="server" /></b> la guía <b><asp:Label ID="numguia" Text="text" runat="server" /></b>, con el pedido <b><asp:Label ID="numpedido" Text="text" runat="server" /></b>, fue generada y enviada correctamente a su correo electrónico.
+                            Hola <b><asp:Label ID="name" Text="text" runat="server" /></b> la guía <b><asp:Label ID="numguia" Text="text" runat="server" /></b>, con el pedido <b><asp:Label ID="numpedido" Text="text" runat="server" /></b>, fue generada y enviada correctamente a tu correo electrónico.
                         </p>
                         <hr class="my-4">
                     </div>
