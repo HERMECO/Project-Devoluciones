@@ -22,11 +22,7 @@
             sweetAlert("Oops...", a, "error");
         }
 
-        function ErrorPli(a, b, c) {
-            if (a.length == 0 || a == "") {
-                sweetAlert("", "Por favor ingrese el re-CAPTCHA", "warning");
-                $('.g-recaptcha > div').css('border', 'solid 1px orangered');
-            }
+        function ErrorPli(b, c) {
             if (b == 'false') {
                 sweetAlert("", "Por favor acepte las politicas", "warning");
                 $('.checkbox > input').css('border', 'solid 1px orangered');
