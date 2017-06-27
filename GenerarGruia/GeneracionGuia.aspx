@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-xs-12 body">
-                <div class="col-xs-12 col-sm-4 info">
+                <div class="col-xs-12 col-sm-5 info">
                     <div class="col-xs-12 float">
                         <div class="col-xs-12 title">
                             <h1><asp:Label ID="Name" runat="server" /></h1> </div>
