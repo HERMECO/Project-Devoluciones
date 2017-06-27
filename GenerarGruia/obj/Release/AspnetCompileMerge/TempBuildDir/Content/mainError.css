@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700");
+li {
+  list-style-type: none; }
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  overflow-x: hidden; }
+  body .header {
+    background: black;
+    padding: 0; }
+    body .header div {
+      padding: 0; }
+      body .header div img {
+        height: 10vh;
+        padding: 1%; }
+  body .body {
+    height: 65vh;
+    background: url("../img/3-low.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 0; }
+    body .body .background {
+      padding: 0;
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      animation: background 40s ease infinite;
+      text-align: left; }
+      body .body .background .title {
+        margin-top: 10vh; }
+        body .body .background .title h1 {
+          color: white;
+          font-size: 48px; }
+      body .body .background .error h2 {
+        margin: 0;
+        margin-top: 1vh;
+        font-size: 90px;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #fd0;
+        text-decoration: none;
+        text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.6);
+        font-weight: 900; }
+      body .body .background .back {
+        margin-top: 5vh;
+        background: white;
+        text-align: center;
+        padding: 8px;
+        font-size: 22px;
+        border-radius: 3px;
+        transition: all .2s ease;
+        color: black; }
+        body .body .background .back:hover {
+          cursor: pointer;
+          background: #e6e6e6; }
+  body .footer {
+    padding: 0;
+    background: whitesmoke;
+    text-align: center; }
+    body .footer .featured {
+      padding: 5vh 5vw; }
+      body .footer .featured li img {
+        width: 8vw; }
+      body .footer .featured li:first-child {
+        border-right: solid 1px lightgray; }
+      body .footer .featured li .cont {
+        text-align: center; }
+        body .footer .featured li .cont div h2 {
+          padding: 0;
+          margin: 0;
+          font-size: 25px; }
+        body .footer .featured li .cont div p {
+          padding: 0;
+          font-size: 20px;
+          font-weight: 100; }
+    body .footer .contact {
+      padding: 0; }
+      body .footer .contact .bottomSecInfo {
+        padding: 0; }
+        body .footer .contact .bottomSecInfo li {
+          padding: 0;
+          padding: 1vh 2vw; }
+          body .footer .contact .bottomSecInfo li h2 {
+            font-size: 25px; }
+          body .footer .contact .bottomSecInfo li a {
+            text-align: left;
+            text-decoration: none;
+            color: gray;
+            list-style-type: disc; }
+            body .footer .contact .bottomSecInfo li a:hover, body .footer .contact .bottomSecInfo li a:focus, body .footer .contact .bottomSecInfo li a:active {
+              color: #4d4d4d;
+              font-weight: bold; }
+      body .footer .contact .info {
+        background: whitesmoke;
+        border-top: solid 1px lightgray;
+        padding: 2vh 1vw; }
+        body .footer .contact .info p,
+        body .footer .contact .info a {
+          text-align: center; }
+      body .footer .contact .accordion h2 {
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        background-image: url(../img/svg/arrows.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right; }
+        body .footer .contact .accordion h2:hover {
+          color: #fd0; }
+      body .footer .contact .accordion a {
+        display: none;
+        text-align: center; }
+      body .footer .contact .accordion.active h2 {
+        background-image: url(../img/svg/arrows-UP.svg); }
+      body .footer .contact .accordion.active a {
+        display: inherit; }
+  @media (max-width: 767px) {
+    body .header div img {
+      padding: 2%; }
+    body .body {
+      height: 63vh; }
+      body .body .background .title {
+        margin-top: 0vh; }
+        body .body .background .title h1 {
+          font-size: 38px; }
+      body .body .background .error h2 {
+        font-size: 70px; }
+      body .body .background a .back {
+        position: absolute;
+        bottom: 5vh; }
+    body .footer {
+      text-align: center; }
+      body .footer .featured {
+        margin-bottom: 2vh;
+        padding-bottom: 0vh; }
+        body .footer .featured li {
+          text-align: center;
+          border-right: none !important;
+          border-bottom: solid 1px lightgray; }
+          body .footer .featured li img {
+            width: 15%;
+            text-align: center;
+            margin-left: 42.5%;
+            padding: 3% 0; }
+          body .footer .featured li .cont {
+            width: 100%;
+            padding-bottom: 4vh; } }
+@keyframes background {
+  0% {
+    background-color: rgba(0, 0, 0, 0.5); }
+  50% {
+    background-color: rgba(0, 0, 0, 0.8); }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5); } }
+
+/*# sourceMappingURL=main.css.map */

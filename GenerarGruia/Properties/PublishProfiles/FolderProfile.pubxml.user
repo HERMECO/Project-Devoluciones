@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_NewBackgroundProfile>False</_NewBackgroundProfile>
+    <_PublishTargetUrl>C:\Users\BASE16DEV1\Desktop\Devoluciones_Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="assets/svg/arrows-UP.svg">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="assets/svg/arrows.svg">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>06/27/2017 08:31:41</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>06/27/2017 08:31:41</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="bin/GenerarGruia.dll">
+      <publishTime>06/27/2017 08:31:05</publishTime>
+    </File>
+    <File Include="bin/GenerarGruia.pdb">
+      <publishTime>06/27/2017 08:31:05</publishTime>
+    </File>
+    <File Include="bin/GenerarGruia.XmlSerializers.dll">
+      <publishTime>06/27/2017 08:31:06</publishTime>
+    </File>
+    <File Include="bin/Hermeco.RestService.ClientProxy.dll">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="bin/Hermeco.RestService.DataContract.dll">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="bin/Hermeco.RestService.SapProxy.dll">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/23/2017 15:38:44</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.Entity.EF6.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.Process.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.DriveInfo.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Thread.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/23/2017 15:38:45</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/custom.css">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/main.css">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/main.css.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Content/mainError.css">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/assets/bg-devoluciones-automaticas.jpg">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/assets/Captcha.psd">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/assets/footer.psd">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/assets/header_background.jpeg">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/assets/Logo.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/assets/recaptcha-google-webbizarro-interno_1417640056000_alarge.jpg">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/base/CertificadosOffcorss.jpg">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/base/image001.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Dosis/Dosis-Bold.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Dosis/Dosis-ExtraBold.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Dosis/Dosis-ExtraLight.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Dosis/Dosis-Light.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Dosis/Dosis-Medium.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Dosis/Dosis-Regular.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Dosis/Dosis-SemiBold.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Roboto condensed/RobotoCondensed-Bold.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Roboto condensed/RobotoCondensed-BoldItalic.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Roboto condensed/RobotoCondensed-Italic.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Roboto condensed/RobotoCondensed-Light.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Roboto condensed/RobotoCondensed-LightItalic.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/fonts/Roboto condensed/RobotoCondensed-Regular.ttf">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/LandPageLand.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/LandPageLandV1.1.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/LandPageLandV1.2.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/LandPageLandV1.3.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/LandPageLandV1.4.1.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/LandPageLandV1.4.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/LayoutV1.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/mobile-clear.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Design/render/mobile-dark.png">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="GeneracionGuia.aspx">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="guiagenerada.aspx">
+      <publishTime>06/26/2017 20:20:00</publishTime>
+    </File>
+    <File Include="img/3-low.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/3.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/bboy.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/bgirl.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/boy.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/call.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/fb.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/FirstInstruction.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/FirstInstruction.svg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/footer.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/girl.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/guide-m.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/guide.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/header.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/hello.png">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/in.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/Logo.png">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/nbboy.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/nbgirl.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/pay.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/SecondInstruction.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/SecondInstruction.svg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/tw.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="img/yt.jpg">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="indexError.html">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="index_email.html">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="Models/infoguia.edmx.diagram">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="No_return.html">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="placeholder.html">
+      <publishTime>06/23/2017 15:38:43</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>06/27/2017 08:31:39</publishTime>
+    </File>
+    <File Include="Problemas.html">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.1.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.1.min.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.1.min.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.1.slim.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.1.slim.min.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.1.slim.min.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/js/index.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Scripts/js/mainError.js">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web References/com.hermeco.chaosap/Reference.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web References/wsGeneracionGuiasSisclinet/CargueMasivoExternoDTO.datasource">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web References/wsGeneracionGuiasSisclinet/ConsultaGuiasXManifestar.datasource">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web References/wsGeneracionGuiasSisclinet/ConsultarGuiasTotalesResultWS.datasource">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web References/wsGeneracionGuiasSisclinet/ConsultarTipoGuiasXCodSer.datasource">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web References/wsGeneracionGuiasSisclinet/ErrorGeneradoPorGuia.datasource">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web References/wsGeneracionGuiasSisclinet/Reference.map">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/27/2017 08:31:38</publishTime>
+    </File>
+    <File Include="XMLFile1.xml">
+      <publishTime>06/23/2017 15:38:42</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

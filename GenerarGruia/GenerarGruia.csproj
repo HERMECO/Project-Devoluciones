@@ -194,6 +194,7 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web References\com.hermeco.chaosap\WsUtilidadesChaoSAP.disco" />
     <Content Include="XMLFile1.xml" />
     <Content Include="Design\assets\Captcha.psd" />
@@ -218,7 +219,6 @@
     <Content Include="Models\infoguia.edmx.diagram">
       <DependentUpon>infoguia.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\Andres.pubxml" />
     <None Include="Web References\com.hermeco.chaosap\WsUtilidadesChaoSAP.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,0 +1,39 @@
+.body {
+    padding: 3%;
+}
+
+.body .jumbotron {
+    padding: 3%;
+    padding-bottom: 2%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    color: white;
+}
+
+.body .jumbotron .display-3 {
+    color: #fd0;
+    text-align: left;
+}
+
+.body .jumbotron .lead {
+    font-size: 22px;
+    text-align: justify;
+}
+
+.body .jumbotron .lead b {
+    color: #fd0;
+}
+
+.body .jumbotron .lead a {
+    background: #fd0;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.body .jumbotron .lead a:hover {
+    background: #ccb100;
+}
+
+/*# sourceMappingURL=custom.css.map */
