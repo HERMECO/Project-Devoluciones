@@ -48,7 +48,7 @@ body {
             }
 
         body .page .body {
-            margin-bottom: 11.5vh;
+            margin-bottom: 10vh;
         }
 
             body .page .body .info .float {
@@ -673,7 +673,7 @@ body .footer {
                     }
 
     body .page .body .info {
-        padding: 8vh 2vw;
+        padding: 6vh 2vw;
         border: dashed 0px yellow;
     }
 

@@ -22,11 +22,7 @@
             sweetAlert("Oops...", a, "error");
         }
 
-        function ErrorPli(a, b, c) {
-            if (a.length == 0 || a == "") {
-                sweetAlert("", "Por favor ingrese el re-CAPTCHA", "warning");
-                $('.g-recaptcha > div').css('border', 'solid 1px orangered');
-            }
+        function ErrorPli(b, c) {
             if (b == 'false') {
                 sweetAlert("", "Por favor acepte las politicas", "warning");
                 $('.checkbox > input').css('border', 'solid 1px orangered');
@@ -62,7 +58,7 @@
                 </div>
             </div>
             <div class="col-xs-12 body">
-                <div class="col-xs-12 col-sm-4 info">
+                <div class="col-xs-12 col-sm-5 info">
                     <div class="col-xs-12 float">
                         <div class="col-xs-12 title">
                             <h1><asp:Label ID="Name" runat="server" /></h1> </div>
