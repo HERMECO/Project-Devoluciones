@@ -121,7 +121,7 @@ namespace GenerarGruia
                     string ciudad = Information.shippingData.address.city;
                     string direccion = Information.shippingData.address.street;
                     string DepartamentoDestino = Information.shippingData.address.state;
-                    string CodigoPostal = Information.shippingData.address.postalCode + 000;
+                    string CodigoPostal = Information.shippingData.address.postalCode + "000";
                     string num_pedido = Information.orderId1;
                     string num_documento = Information.clientProfileData.document;
                     string NomApell = $"{ nombre } { apellidos }";
@@ -219,6 +219,8 @@ namespace GenerarGruia
                             //3.Set de parametros del envío
                             cargueExtern[0].objEnvios[i] = new EnviosExterno();
                             var arrEnvios = new EnviosExterno();
+
+                            //CARACTETISTICAS DEL ENVIO
                             arrEnvios.Num_Guia = 0;
                             arrEnvios.Num_Sobreporte = 0;
                             arrEnvios.Num_SobreCajaPorte = "0";
@@ -239,48 +241,73 @@ namespace GenerarGruia
                             arrEnvios.Nom_UnidadEmpaque = Nom_UnidadEmpaque;
                             arrEnvios.Gen_Sobreporte = false;
                             arrEnvios.Gen_Cajaporte = false;
+                            arrEnvios.Des_DiceContenerSobre = Des_DiceContener;
+                            
+                            //CAMPOS OPCIONALES CON CAIDA IMPRESA EN LA GUIA
                             arrEnvios.Doc_Relacionado = num_pedido;
                             arrEnvios.Des_VlrCampoPersonalizado1 = NomApell;
                             arrEnvios.Ide_Num_Referencia_Dest = "";
-                            arrEnvios.Num_Factura = "";
+                            arrEnvios.Num_Factura = numFactura;
+                            
+                            //TIPO DE PRODUCTO A UTILIZAR DE SERVIENTREGA
                             arrEnvios.Ide_Producto = Ide_Producto;//tipo de mercancia a cargar
+                            arrEnvios.Num_Recaudo = "0";
+
+
+                            //OTRA INFORMACION, DEJAR SIEMPRE FIJA
+                            Guid guid = new Guid("00000000-0000-0000-0000-000000000000");
+                            arrEnvios.Ide_Destinatarios = guid;
+                            arrEnvios.Ide_Manifiesto = guid;                            
                             arrEnvios.Num_BolsaSeguridad = Num_BolsaSeguridad;
+                            arrEnvios.Num_Precinto = 0;
                             arrEnvios.Num_VolumenTotal = Num_VolumenTotal;
+                            arrEnvios.Des_DireccionRecogida = "";
+                            arrEnvios.Des_TelefonoRecogida = "";
+                            arrEnvios.Des_CiudadRecogida = "";                            
                             arrEnvios.Num_PesoFacturado = 0;
                             arrEnvios.Des_TipoGuia = 2;
-                            arrEnvios.Des_CiudadOrigen = ciudad;
+                            arrEnvios.Id_ArchivoCargar = "";
+                            arrEnvios.Des_CiudadOrigen = "0";
+
+                            //arrEnvios.idePaisOrigen = 1;
+                            //arrEnvios.idePaisDestino = 1;                              
+                            //arrEnvios.Des_codigopostal = codigoPostal_Des;                                                      
+                            //arrEnvios.Recoleccion_Esporadica = "";
+                            //arrEnvios.Rem_codigopostal = CodigoPostal;                            
+                            
+                            //Valores
                             arrEnvios.Num_ValorDeclaradoTotal = valorDeclarado;
                             arrEnvios.Num_ValorLiquidado = 0;
                             arrEnvios.Num_VlrSobreflete = 0;
                             arrEnvios.Num_VlrFlete = 0;
                             arrEnvios.Num_Descuento = 0;
                             arrEnvios.Num_ValorDeclaradoSobreTotal = "60000";
+
+                            //Informacion Destinatario
                             arrEnvios.Des_Telefono = telefono_Des;
                             arrEnvios.Des_Ciudad = ciudad_Des;
-                            arrEnvios.idePaisOrigen = 1;
-                            arrEnvios.idePaisDestino = 1;
-                            arrEnvios.Nom_Remitente = nombre;
                             arrEnvios.Des_DepartamentoDestino = departamento_Des;
                             arrEnvios.Des_Direccion = direccion_Des;
                             arrEnvios.Nom_Contacto = nombre_Des;
-                            arrEnvios.Ide_Num_Identific_Dest = num_documento;
-                            arrEnvios.Des_CorreoElectronico = email_Des;
-                            arrEnvios.Est_CanalMayorista = false;
-                            arrEnvios.Des_DepartamentoOrigen = DepartamentoDestino;
                             arrEnvios.Des_DiceContener = Des_DiceContener;
-                            arrEnvios.Des_codigopostal = codigoPostal_Des;
-                            arrEnvios.Des_CiudadRecogida = ciudad;
-                            arrEnvios.Des_CiudadRemitente = "";
-                            arrEnvios.Des_DireccionRecogida = "0";
-                            arrEnvios.Des_TelefonoRecogida = "0";
-                            arrEnvios.Nom_RemitenteCanal = "";
+                            arrEnvios.Ide_Num_Identific_Dest = num_documento;
                             arrEnvios.Num_Celular = "";
-                            arrEnvios.Recoleccion_Esporadica = "";
-                            arrEnvios.Rem_codigopostal = CodigoPostal;
-                            arrEnvios.Des_DiceContenerSobre = "";
-                            arrEnvios.Num_IdentiRemitente = "";
+                            arrEnvios.Des_CorreoElectronico = email_Des;
+
+                            //Información del Remitente
+                            arrEnvios.Des_CiudadRemitente = CodigoPostal;
                             arrEnvios.Des_DireccionRemitente = direccion;
+                            arrEnvios.Des_DepartamentoOrigen = "";
                             arrEnvios.Num_TelefonoRemitente = telefono;
+                            arrEnvios.Num_IdentiRemitente = "";//num_documento si se envía falla la creación de la guía;
+                            arrEnvios.Nom_Remitente = nombre;
+
+                            //MAYORISTA , NO APICA PARA CLIENTES
+                            arrEnvios.Est_CanalMayorista = false;
+                            arrEnvios.Nom_RemitenteCanal = "";
+
+                            arrEnvios.Des_IdArchivoOrigen = "1000100";
+
                             cargueExtern[0].objEnvios[i] = arrEnvios;
                         }
 
