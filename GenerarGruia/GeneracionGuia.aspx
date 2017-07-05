@@ -214,9 +214,9 @@
         </ul>
         <div class="contact col-xs-12">
             <ul class="bottomSecInfo col-xs-12">
-                <li class="accordion col-xs-12 col-sm-6">
+                <li class="accordion active col-xs-12 col-sm-6">
                     <h2 class="col-xs-12">ACERCA DE LA MARCA</h2> <a class="col-xs-12" href="http://www.offcorss.com/acerca-de-marca/quienes-somos">¿Quiénes somos?</a> <a class="col-xs-12" href="http://www.offcorss.com/acerca-de-marca/responsabilidad-social">Responsabilidad social</a> <a class="col-xs-12" href="http://oportunidades.offcorss.com/PruebaOportunidades/tabid/160/Default.aspx">Trabaja con nosotros</a> </li>
-                <li class="accordion col-xs-12 col-sm-6">
+                <li class="accordion active col-xs-12 col-sm-6">
                     <h2 class="col-xs-12">LINKS DE INTERÉS</h2> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/preguntas-frecuentes">Preguntas frecuentes</a> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/guia-de-tallas">Guía de tallas</a> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/como-comprar">¿Cómo comprar en OFFCORSS?</a> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/politica-entregas-devoluciones">Política de entregas y devoluciones</a> <a class="col-xs-12" href="http://www.sic.gov.co/drupal/">Estatuto de protección al consumidor</a> <a class="col-xs-12" href="http://ocblog.offcorss.com/" target="_blank">OCBLOG </a> <a class="col-xs-12" href="http://www.offcorss.com/promocionesvigentes">Promociones Vigentes </a> <a class="col-xs-12" href="http://www.offcorss.com/guias">Videos tutoriales</a> </li>
             </ul>
             <div class="info col-xs-12">
