@@ -309,7 +309,7 @@ body .footer {
 
             body .footer .contact .bottomSecInfo li {
                 padding: 0;
-                padding: 1vh 2vw;
+                padding: 1vh 5vw;
             }
 
                 body .footer .contact .bottomSecInfo li h2 {
@@ -772,6 +772,7 @@ body .footer {
         body .page .generate .validate {
             padding: 2vw;
             position: absolute;
+            background : rgba(0,0,0,0.7);
             bottom: 5vh;
             right: 1vw;
             border-radius : 5px;
@@ -1374,6 +1375,15 @@ ul li {
         .select2-container--default .select2-dropdown .select2-search__field {
             color: black;
         }
+}
+
+@media (min-width: 768px) {
+    body .footer .contact .accordion h2{
+        background: none;
+    }
+    body .footer .contact .accordion.active h2 {
+        background: none;   
+    }
 }
 
 /*# sourceMappingURL=main.css.map */
