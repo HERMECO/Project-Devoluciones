@@ -82,7 +82,9 @@ $(function () {
         $('.popup > .float > .content').html('');
     });
     $('.accordion').on('click', function () {
-        $(this).toggleClass('active');
+        if ($(window).innerWidth() <= 767){
+            $(this).toggleClass('active');
+        }
     });
     $('#dialog > .close').on('click', function () {
         $('#dialog').removeClass();
