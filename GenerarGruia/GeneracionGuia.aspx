@@ -212,6 +212,15 @@
                     </form>
                 </div>
             </li>
+            <li class="ventaCatalogo col-xs-12 col-sm-4">
+                <a class="col-xs-12" href="http://ventadirecta.offcorss.com/quienes-somos">
+                    <img class="col-xs-12 col-sm-7" style="width:50%;padding-right:0;" src="http://www.offcorss.com/arquivos/iconVentaCatalogoOptimizado.png" alt="">
+                    <span class="contentCatalogo col-xs-12 col-sm-6" style="color:#009edb;padding-left:0;padding-top:5%;">
+                        <h1 class="col-xs-12" style="margin:0;padding:0;">VENTAS</h1>
+                        <h4 class="col-xs-12" style="margin:0;padding:0;white-space:nowrap;">POR CATÁLOGO</h4>
+                    </span>
+                </a>
+            </li>
         </ul>
         <div class="contact col-xs-12">
             <ul class="bottomSecInfo col-xs-12">
@@ -222,8 +231,17 @@
                     <a class="fa fa-youtube col-xs-3 col-sm-2" href="https://www.youtube.com/user/OFFCORSSenLinea" target="_blank"></a>
                     <a class="fa fa-instagram col-xs-3 col-sm-2" href="https://www.instagram.com/offcorss/" target="_blank"></a>
                 </li>
-                <li class="accordion active col-xs-12 col-sm-4">
-                    <h2 class="col-xs-12">LINKS DE INTERÉS</h2> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/preguntas-frecuentes">Preguntas frecuentes</a> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/guia-de-tallas">Guía de tallas</a> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/como-comprar">¿Cómo comprar en OFFCORSS?</a> <a class="col-xs-12" href="http://www.offcorss.com/links-interes/politica-entregas-devoluciones">Política de entregas y devoluciones</a> <a class="col-xs-12" href="http://www.sic.gov.co/drupal/">Estatuto de protección al consumidor</a> <a class="col-xs-12" href="http://ocblog.offcorss.com/" target="_blank">OCBLOG </a> <a class="col-xs-12" href="http://www.offcorss.com/promocionesvigentes">Promociones Vigentes </a> <a class="col-xs-12" href="http://www.offcorss.com/guias">Videos tutoriales</a> </li>
+                <li class="accordion col-xs-12 col-sm-4 active">
+                    <h2 class="col-xs-12">LINKS DE INTERÉS</h2>
+                    <a class="col-xs-12" href="http://www.offcorss.com/links-interes/preguntas-frecuentes">Preguntas frecuentes</a>
+                    <a class="col-xs-12" href="http://www.offcorss.com/links-interes/guia-de-tallas">Guía de tallas</a>
+                    <a class="col-xs-12" href="http://www.offcorss.com/links-interes/como-comprar">¿Cómo comprar en OFFCORSS?</a>
+                    <a class="col-xs-12" href="http://www.offcorss.com/links-interes/politica-entregas-devoluciones">Política de entregas y devoluciones</a>
+                    <a class="col-xs-12" href="http://www.sic.gov.co/drupal/">Estatuto de protección al consumidor</a>
+                    <a class="col-xs-12" href="http://ocblog.offcorss.com/" target="_blank">OCBLOG </a>
+                    <a class="col-xs-12" href="http://www.offcorss.com/promocionesvigentes">Promociones Vigentes </a>
+                    <a class="col-xs-12" href="http://www.offcorss.com/guias">Videos tutoriales</a>
+                </li>
             </ul>
             <div class="info col-xs-12">
                 <p class="col-xs-12 col-sm-3">Razón Social: C.I HERMECO S.A. NIT: 890924167-6 </p>
