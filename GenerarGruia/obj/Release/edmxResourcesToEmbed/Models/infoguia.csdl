@@ -15,6 +15,7 @@
     <Property Name="codigoPostal" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="id_motivos" Type="Int32" />
     <Property Name="num_documento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="source" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="datosguiaEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="info_guia" EntityType="Self.info_guia" />

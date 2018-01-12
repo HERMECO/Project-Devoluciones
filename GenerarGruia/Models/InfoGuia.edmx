@@ -20,6 +20,7 @@
           <Property Name="direccion" Type="varchar" MaxLength="70" />
           <Property Name="codigoPostal" Type="varchar" MaxLength="11" />
           <Property Name="id_motivos" Type="int" />
+          <Property Name="source" Type="varchar" />
         </EntityType>
         <EntityType Name="motivos">
           <Key>
@@ -52,6 +53,7 @@
           <Property Name="codigoPostal" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="id_motivos" Type="Int32" />
           <Property Name="num_documento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="source" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="datosguiaEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="info_guia" EntityType="Self.info_guia" />
@@ -85,6 +87,7 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+                <ScalarProperty Name="source" ColumnName="source" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

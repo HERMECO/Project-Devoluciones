@@ -15,6 +15,7 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="direccion" ColumnName="direccion" />
           <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="source" ColumnName="source" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

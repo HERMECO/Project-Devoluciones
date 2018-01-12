@@ -17,14 +17,20 @@ namespace GenerarGruia
 {
     public partial class GeneracionGuia : System.Web.UI.Page
     {
+
+        static string vtexKey = ConfigurationManager.AppSettings["VTEXKey"];
+        static string vtexToken = ConfigurationManager.AppSettings["VTEXToken"];
+        string headers = string.Format("x-vtex-api-appKey:{0};x-vtex-api-appToken:{1}", vtexKey, vtexToken);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 string page = Request.QueryString["num_pedido"];
+                Session["source"] = Request.QueryString["source"];
 
                 GetOrderDetailVtex($"http://offcorss.vtexcommercestable.com.br/api/oms/pvt/orders/{page}",
-                    "x-vtex-api-appKey:vtexappkey-offcorss-OZNHJF;x-vtex-api-appToken:DUJHOHBZQROBWRMUHYCUKTYLMVVMCLKMSVOXYPJTADTLQIBROVYZJIZJWYVTMPXFHBJBDOWSOITGAMUDTDXGMKCJVEBZTQHLGNEPZAOAYGLAOSJKERZIRQTWYZFYMXZY",
+                    headers,
                     "");
 
                 using (datosguiaEntities mot = new datosguiaEntities())
@@ -110,8 +116,9 @@ namespace GenerarGruia
                 string page = Request.QueryString["num_pedido"];
                 if (page != null)
                 {
+                    
                     var Information = GetOrderDetailVtex($"http://offcorss.vtexcommercestable.com.br/api/oms/pvt/orders/{page}",
-                        "x-vtex-api-appKey:vtexappkey-offcorss-OZNHJF;x-vtex-api-appToken:DUJHOHBZQROBWRMUHYCUKTYLMVVMCLKMSVOXYPJTADTLQIBROVYZJIZJWYVTMPXFHBJBDOWSOITGAMUDTDXGMKCJVEBZTQHLGNEPZAOAYGLAOSJKERZIRQTWYZFYMXZY", "");
+                        headers, "");
 
                     // informacion del Remitente
                     string nombre = Information.clientProfileData.firstName;
@@ -140,7 +147,7 @@ namespace GenerarGruia
 
 
                     var infoEmail = GetEmailVtex($"http://conversationtracker.vtex.com.br/api/pvt/emailMapping?alias={alias}&an=offcorss",
-                        "x-vtex-api-appKey:vtexappkey-offcorss-OZNHJF;x-vtex-api-appToken:DUJHOHBZQROBWRMUHYCUKTYLMVVMCLKMSVOXYPJTADTLQIBROVYZJIZJWYVTMPXFHBJBDOWSOITGAMUDTDXGMKCJVEBZTQHLGNEPZAOAYGLAOSJKERZIRQTWYZFYMXZY", "");
+                        headers, "");
 
                     string email = infoEmail.email;
 
@@ -242,13 +249,13 @@ namespace GenerarGruia
                             arrEnvios.Gen_Sobreporte = false;
                             arrEnvios.Gen_Cajaporte = false;
                             arrEnvios.Des_DiceContenerSobre = Des_DiceContener;
-                            
+
                             //CAMPOS OPCIONALES CON CAIDA IMPRESA EN LA GUIA
                             arrEnvios.Doc_Relacionado = num_pedido;
                             arrEnvios.Des_VlrCampoPersonalizado1 = NomApell;
                             arrEnvios.Ide_Num_Referencia_Dest = "";
                             arrEnvios.Num_Factura = numFactura;
-                            
+
                             //TIPO DE PRODUCTO A UTILIZAR DE SERVIENTREGA
                             arrEnvios.Ide_Producto = Ide_Producto;//tipo de mercancia a cargar
                             arrEnvios.Num_Recaudo = "0";
@@ -257,13 +264,13 @@ namespace GenerarGruia
                             //OTRA INFORMACION, DEJAR SIEMPRE FIJA
                             Guid guid = new Guid("00000000-0000-0000-0000-000000000000");
                             arrEnvios.Ide_Destinatarios = guid;
-                            arrEnvios.Ide_Manifiesto = guid;                            
+                            arrEnvios.Ide_Manifiesto = guid;
                             arrEnvios.Num_BolsaSeguridad = Num_BolsaSeguridad;
                             arrEnvios.Num_Precinto = 0;
                             arrEnvios.Num_VolumenTotal = Num_VolumenTotal;
                             arrEnvios.Des_DireccionRecogida = "";
                             arrEnvios.Des_TelefonoRecogida = "";
-                            arrEnvios.Des_CiudadRecogida = "";                            
+                            arrEnvios.Des_CiudadRecogida = "";
                             arrEnvios.Num_PesoFacturado = 0;
                             arrEnvios.Des_TipoGuia = 2;
                             arrEnvios.Id_ArchivoCargar = "";
@@ -274,7 +281,7 @@ namespace GenerarGruia
                             //arrEnvios.Des_codigopostal = codigoPostal_Des;                                                      
                             //arrEnvios.Recoleccion_Esporadica = "";
                             //arrEnvios.Rem_codigopostal = CodigoPostal;                            
-                            
+
                             //Valores
                             arrEnvios.Num_ValorDeclaradoTotal = valorDeclarado;
                             arrEnvios.Num_ValorLiquidado = 0;
@@ -372,7 +379,8 @@ namespace GenerarGruia
                                         email = email,
                                         direccion = direccion,
                                         codigoPostal = CodigoPostal,
-                                        id_motivos = motivos
+                                        id_motivos = motivos,
+                                        source = Session["source"] != null ? Session["source"].ToString() : ""
                                     };
                                     context.info_guia.Add(bd);
                                     context.SaveChanges();

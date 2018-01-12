@@ -50,7 +50,7 @@ $(function () {
         //    $('.popup > .float > .content').load('No_return.html');
         //    scrollTo($('.popup'));
         //}
-        //sweetAlert("Los siguientes productos no aplican para devolucion:", "- Interior (Medias, Boxer, Pantaloncillo, top, panty, set interior).  - Prendas de baño.  - Articulos de cuidado personal", "info");
+        //sweetAlert("Los siguientes productos no aplican para devolucion:", "- Interior (Medias, Boxer, Pantaloncillo, top, panty, set interior).  - Prendas de baÃ±o.  - Articulos de cuidado personal", "info");
         $('#myModal').modal('toggle');
     });
 
@@ -79,9 +79,12 @@ $(function () {
         },
             'slow');
         $('.popup').removeClass('active');
+        $('.popup > .float > .content').html('');
     });
     $('.accordion').on('click', function () {
-        $(this).toggleClass('active');
+        if ($(window).innerWidth() <= 767){
+            $(this).toggleClass('active');
+        }
     });
     $('#dialog > .close').on('click', function () {
         $('#dialog').removeClass();
