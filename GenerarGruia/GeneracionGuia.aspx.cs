@@ -12,15 +12,29 @@ using System.Configuration;
 using GenerarGruia.Models;
 using System.Web.Script.Serialization;
 using System.Net.Mime;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace GenerarGruia
 {
     public partial class GeneracionGuia : System.Web.UI.Page
     {
 
+
         static string vtexKey = ConfigurationManager.AppSettings["VTEXKey"];
         static string vtexToken = ConfigurationManager.AppSettings["VTEXToken"];
+        static string url = ConfigurationManager.AppSettings["VTEXoms"];
         string headers = string.Format("x-vtex-api-appKey:{0};x-vtex-api-appToken:{1}", vtexKey, vtexToken);
+        public static readonly HttpClient HttpClient;
+
+
+        static GeneracionGuia()
+        {
+            HttpClient = new HttpClient();
+            HttpClient.DefaultRequestHeaders.Add("X-VTEX-API-AppKey", vtexKey);
+            HttpClient.DefaultRequestHeaders.Add("X-VTEX-API-AppToken", vtexToken);
+            HttpClient.Timeout = new TimeSpan(0, 20, 0);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,9 +43,7 @@ namespace GenerarGruia
                 string page = Request.QueryString["num_pedido"];
                 Session["source"] = Request.QueryString["source"];
 
-                GetOrderDetailVtex($"http://offcorss.vtexcommercestable.com.br/api/oms/pvt/orders/{page}",
-                    headers,
-                    "");
+                Order order = GetOrderDetailVtexAsync(page).Result;
 
                 using (datosguiaEntities mot = new datosguiaEntities())
                 {
@@ -44,38 +56,42 @@ namespace GenerarGruia
                     string script = "var data = " + json + ";";
                     ClientScript.RegisterClientScriptBlock(this.Page.GetType(), "dataVar", script, true);
                 }
+
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.InnerException);
             }
         }
 
-        public VtexOrder GetOrderDetailVtex(string url, string headers, string parameters)
+        public async Task<Order> GetOrderDetailVtexAsync(string orderid)
         {
+            Order order = null;
             try
             {
-                RestWebRequest _request = new RestWebRequest(url, HttpVerb.GET, headers, parameters);
+                HttpResponseMessage response = await HttpClient.GetAsync(url + orderid);
 
-                string _result = _request.GetResponse();
 
-                VtexOrder deserialize = JsonHelper.JsonDeserialize<VtexOrder>(_result);
-
-                if (deserialize.orderId1 != null)
+                if (response.IsSuccessStatusCode)
                 {
-                    Name.Text = $"Hola {deserialize.clientProfileData.firstName}";
-                    OrderId.Text = $"#{deserialize.orderId1}";
+                    order = await response.Content.ReadAsAsync<Order>();
                 }
 
-                return deserialize;
+
+                if (order != null && order.OrderId != null)
+                {
+                    Name.Text = $"Hola {order.ClientProfileData.FirstName}";
+                    OrderId.Text = $"#{order.OrderId}";
+                }
+
 
             }
             catch (WebException ex)
             {
                 var r = ex.Response.GetResponseStream();
             }
-
-            return null;
+            return order;
         }
 
         public VtexEmail GetEmailVtex(string url, string headers, string parameters)
@@ -116,35 +132,43 @@ namespace GenerarGruia
                 string page = Request.QueryString["num_pedido"];
                 if (page != null)
                 {
-                    
-                    var Information = GetOrderDetailVtex($"http://offcorss.vtexcommercestable.com.br/api/oms/pvt/orders/{page}",
-                        headers, "");
+
+                    var Information = GetOrderDetailVtexAsync(page).Result;
+
+                    string[] serviciosSinDevoluion = ConfigurationManager.AppSettings["ServiciosSinDevolucion"].Split(',');
+                    int itemsSinDevolucion = Information.Items.Where(i => i.BundleItems.Where(b => serviciosSinDevoluion.Contains(b.AdditionalInfo.OfferingTypeId)).Count() > 0).Count();
+
+                    //Si ningun producto se puede devolver
+                    if (itemsSinDevolucion == Information.Items.Count)
+                    {
+                        infoDevolucionNoPermitida(Information.OrderId);
+                        return;
+                    }
+
 
                     // informacion del Remitente
-                    string nombre = Information.clientProfileData.firstName;
-                    string apellidos = Information.clientProfileData.lastName;
-                    string telefono = Information.clientProfileData.phone;
-                    string alias = Information.clientProfileData.email;
-                    string ciudad = Information.shippingData.address.city;
-                    string direccion = Information.shippingData.address.street;
-                    string DepartamentoDestino = Information.shippingData.address.state;
-                    string CodigoPostal = Information.shippingData.address.postalCode + "000";
-                    string num_pedido = Information.orderId1;
-                    string num_documento = Information.clientProfileData.document;
+                    string nombre = Information.ClientProfileData.FirstName;
+                    string apellidos = Information.ClientProfileData.LastName;
+                    string telefono = Information.ClientProfileData.Phone;
+                    string alias = Information.ClientProfileData.Email;
+                    string ciudad = Information.ShippingData.Address.City;
+                    string direccion = Information.ShippingData.Address.Street;
+                    string DepartamentoDestino = Information.ShippingData.Address.State;
+                    string CodigoPostal = Information.ShippingData.Address.PostalCode + "000";
+                    string num_pedido = Information.OrderId;
+                    string num_documento = Information.ClientProfileData.Document;
                     string NomApell = $"{ nombre } { apellidos }";
 
                     string numFactura;
 
-                    if (Information.packageAttachment.packages.Count <= 0)
+                    if (Information.PackageAttachment.Packages.Count <= 0)
                     {
                         numFactura = "";
                     }
                     else
                     {
-                        numFactura = Information.packageAttachment.packages[0].invoiceNumber;
+                        numFactura = Information.PackageAttachment.Packages[0].InvoiceNumber;
                     }
-
-
 
                     var infoEmail = GetEmailVtex($"http://conversationtracker.vtex.com.br/api/pvt/emailMapping?alias={alias}&an=offcorss",
                         headers, "");
@@ -692,12 +716,13 @@ namespace GenerarGruia
                 //mail.Body = BodyMail(); ;
                 mail.AlternateViews.Add(htmlView);
                 mail.To.Add(correo);
-                mail.Attachments.Add(new Attachment(ruta));
+                System.Net.Mail.Attachment att = new System.Net.Mail.Attachment(ruta);
+                mail.Attachments.Add(att);
 
                 //Configuracion del SMTP
                 SmtpServer.Port = 25; //Puerto que utiliza Gmail para sus servicios
-                //Especificamos las credenciales con las que enviaremos el mail
-                //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
+                                      //Especificamos las credenciales con las que enviaremos el mail
+                                      //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
                 SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
                 SmtpServer.UseDefaultCredentials = false;
                 SmtpServer.Host = smtp;
@@ -773,12 +798,12 @@ namespace GenerarGruia
                 mail.IsBodyHtml = true;
                 mail.Body = Mailbody(nombre, correo, cedula, pedido, motivo, guia, factura); ;
                 mail.To.Add(destinatario);
-                mail.Attachments.Add(new Attachment(ruta));
+                mail.Attachments.Add(new System.Net.Mail.Attachment(ruta));
 
                 //Configuracion del SMTP
                 SmtpServer.Port = 25; //Puerto que utiliza Gmail para sus servicios
-                //Especificamos las credenciales con las que enviaremos el mail
-                //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
+                                      //Especificamos las credenciales con las que enviaremos el mail
+                                      //SmtpServer.Credentials = new NetworkCredential(emailRemite, passRemite);
                 SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
                 SmtpServer.UseDefaultCredentials = false;
                 SmtpServer.Host = smtp;
@@ -803,6 +828,12 @@ namespace GenerarGruia
         public void infoErrorOrder(string num_pedido)
         {
             string textError = $"Lo sentimos ha ocurrido un error al generar la guía del pedido #{num_pedido}, por favor comunícate a nuestra línea  01 8000 18 0380 o envíanos un correo a la dirección servicioalcliente@offcorss.com";
+            ClientScript.RegisterStartupScript(this.GetType(), "Error", "ErrorModal('" + textError + "');", true);
+        }
+
+        public void infoDevolucionNoPermitida(string num_pedido)
+        {
+            string textError = $"Lo sentimos, no es posible generar la devolución de productos personalizados. Si tienes alguna inquietud por favor envíanos un correo a la dirección servicioalcliente@offcorss.com";
             ClientScript.RegisterStartupScript(this.GetType(), "Error", "ErrorModal('" + textError + "');", true);
         }
 

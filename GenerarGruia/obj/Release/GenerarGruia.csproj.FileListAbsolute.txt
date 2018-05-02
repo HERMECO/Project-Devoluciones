@@ -212,9 +212,6 @@ C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\GenerarGruia.X
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\GenerarGruia.pdb
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\EntityFramework.dll
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\EntityFramework.SqlServer.dll
-C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Hermeco.RestService.ClientProxy.dll
-C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Hermeco.RestService.DataContract.dll
-C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Hermeco.RestService.SapProxy.dll
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\itextsharp.dll
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Microsoft.AI.DependencyCollector.dll
@@ -239,3 +236,9 @@ C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Release\Genera
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Release\GenerarGruia.dll
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Release\GenerarGruia.pdb
 C:\Users\ANAAA\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Release\GenerarGruia.XmlSerializers.dll
+C:\Users\anaaa\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Newtonsoft.Json.dll
+C:\Users\anaaa\Source\Repos\Project-Devoluciones\GenerarGruia\bin\System.Net.Http.Formatting.dll
+C:\Users\anaaa\Source\Repos\Project-Devoluciones\GenerarGruia\bin\Newtonsoft.Json.xml
+C:\Users\anaaa\Source\Repos\Project-Devoluciones\GenerarGruia\bin\System.Net.Http.Formatting.xml
+C:\Users\anaaa\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Release\GenerarGruia.csproj.CoreCompileInputs.cache
+C:\Users\anaaa\Source\Repos\Project-Devoluciones\GenerarGruia\obj\Release\GenerarGruia.csproj.CopyComplete
